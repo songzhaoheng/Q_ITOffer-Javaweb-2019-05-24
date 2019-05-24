@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.interfacer.companyInfoRegister.CompanyInfoRegisterInterface">
+    <resultMap id="resultMap" type="com.qst.itofferbacker.javabean.CompanyInfoAdd">
+        <result property="COMPANY_NAME" column="COMPANY_NAME" jdbcType="CHAR"/>
+        <result property="COMPANY_AREA" column="COMPANY_AREA" jdbcType="CHAR"/>
+        <result property="COMPANY_SIZE" column="COMPANY_SIZE" jdbcType="CHAR"/>
+        <result property="COMPANY_TYPE" column="COMPANY_TYPE" jdbcType="CHAR"/>
+        <result property="COMPANY_BRIEF" column="COMPANY_BRIEF" jdbcType="CHAR"/>
+        <result property="COMPANY_STATE" column="COMPANY_STATE" jdbcType="INTEGER"/>
+        <result property="COMPANY_SORT" column="COMPANY_SORT" jdbcType="INTEGER"/>
+        <result property="COMPANY_VIEWNUM" column="COMPANY_VIEWNUM" jdbcType="CHAR"/>
+        <result property="COMPANY_PIC" column="COMPANY_PIC" jdbcType="CHAR"/>
+    </resultMap>
+
+    <!--//插入企业信息
+    public boolean insertCompanyInfo(CompanyInfoAdd companyInfoAdd);
+    -->
+    <insert id="insertCompanyInfo">
+        insert into tb_company(COMPANY_NAME,COMPANY_AREA,COMPANY_SIZE,COMPANY_TYPE,COMPANY_BRIEF,COMPANY_STATE,COMPANY_SORT,COMPANY_VIEWNUM,COMPANY_PIC)
+        values(#{COMPANY_NAME},#{COMPANY_AREA},#{COMPANY_SIZE},#{COMPANY_TYPE},#{COMPANY_BRIEF},#{COMPANY_STATE},#{COMPANY_SORT},#{COMPANY_VIEWNUM},#{COMPANY_PIC})
+    </insert>
+</mapper>

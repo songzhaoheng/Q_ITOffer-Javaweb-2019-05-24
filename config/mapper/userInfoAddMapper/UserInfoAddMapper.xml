@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace:名称空间；或者是指定为接口的全类名
+-->
+<mapper namespace="com.mybatis.interfacer.userInfoRegister.UserInfoAddInterface">
+
+    <resultMap id="resultMap" type="com.qst.itofferbacker.javabean.UserInfo">
+        <id property="USER_ID" jdbcType="INTEGER" column="USER_ID"/>
+        <result property="USER_LOGNAME" jdbcType="CHAR" column="USER_LOGNAME"/>
+        <result property="USER_PWD" jdbcType="CHAR" column="USER_PWD"/>
+        <result property="USER_REALNAME" jdbcType="CHAR" column="USER_REALNAME"/>
+        <result property="USER_EMAIL" jdbcType="CHAR" column="USER_EMAIL"/>
+        <result property="USER_ROLE" jdbcType="INTEGER" column="USER_ROLE"/>
+        <result property="USER_STATE" jdbcType="INTEGER" column="USER_STATE"/>
+    </resultMap>
+
+    <!--插入用户信息-->
+    <insert id="insertUserInfoAdd">
+        insert into tb_users(USER_LOGNAME,USER_PWD,USER_REALNAME,USER_EMAIL,USER_ROLE,USER_STATE) values(#{USER_LOGNAME},#{USER_PWD},#{USER_REALNAME},#{USER_EMAIL},#{USER_ROLE},#{USER_STATE})
+    </insert>
+
+    <!--查询用户名、真是姓名、邮箱是否重复-->
+    <select id="selectUserInfoName" resultMap="resultMap">
+        select * from tb_users where USER_ID = #{USER_ID,jdbcType=INTEGER}
+    </select>
+
+</mapper>

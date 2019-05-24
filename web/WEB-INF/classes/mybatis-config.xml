@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--引入db外部属性文件-->
+    <properties resource="properties/db.properties"></properties>
+
+    <settings>
+        <!-- Globally enables or disables any caches configured in any mapper under this configuration -->
+        <setting name="cacheEnabled" value="false"/>
+        <!-- Sets the number of seconds the driver will wait for a response from the database -->
+        <setting name="defaultStatementTimeout" value="5"/>
+        <!-- Enables automatic mapping from classic database column names A_COLUMN to camel case classic Java property names aColumn -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- Allows JDBC support for generated keys. A compatible driver is required.
+        This setting forces generated keys to be used if set to true,
+         as some drivers deny compatibility but still work -->
+        <setting name="useGeneratedKeys" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+
+    <!--定义别名-->
+    <typeAliases>
+        <typeAlias type="com.qst.itofferbacker.javabean.UserInfo" alias="userInfo"/>
+        <typeAlias type="com.qst.itofferbacker.javabean.LoginSelect" alias="loginselect"/>
+    </typeAliases>
+
+    <!-- Continue editing here -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--映射写好的SQL映射文件，并且注册到全局配置文件mybatis-config中-->
+    <mappers>
+        <!--获取用户信息-->
+        <mapper resource="mapper/userInfoMapper/UserInfoMapper.xml"/>
+        <!--用户登录-->
+        <mapper resource="mapper/userInfologinMapper/LoginSelectMapper.xml"/>
+        <!--用户信息添加-->
+        <mapper resource="mapper/userInfoAddMapper/UserInfoAddMapper.xml"/>
+        <!--用户密码找回-->
+        <mapper resource="mapper/userInfologinMapper/PasswordBackMapper.xml"/>
+        <!--企业信息添加-->
+        <mapper resource="mapper/companyInfoAddMapper/CompanyInfoAddMapper.xml"/>
+        <!--企业信息-->
+        <mapper resource="mapper/companyInfoAddMapper/CompanyInfoMapper.xml"/>
+        <!--用户信息修改-->
+        <mapper resource="mapper/userInfoUpdateMapper/UserInfoUpdateMapper.xml"/>
+        <!--注销用户-->
+        <mapper resource="mapper/logOffInfoMapper/LogOffInfoMapper.xml"/>
+        <!--自动销毁数据-->
+        <mapper resource="mapper/logOffInfoMapper/DestroyUserInfoMapper.xml"/>
+        <!--账户找回-->
+        <mapper resource="mapper/retrieveAccountMapper/RetrieveAccountServletMapper.xml"/>
+    </mappers>
+</configuration>

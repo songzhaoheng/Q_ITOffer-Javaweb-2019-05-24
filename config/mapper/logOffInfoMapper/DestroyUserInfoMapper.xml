@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.interfacer.destroyUserInfo.DestroyUserInfoInterface">
+
+    <resultMap id="resultMap" type="com.qst.itofferbacker.javabean.UserInfoBackSelect">
+        <id property="USER_ID" jdbcType="INTEGER" column="USER_ID"/>
+        <result property="USER_DATE" jdbcType="TIMESTAMP" column="USER_DATE"/>
+    </resultMap>
+
+    <!--查询出7前的数据-->
+    <select id="selectUserInfoBackDate" resultMap="resultMap">
+        select USER_ID,USER_DATE from tb_users_copy where TO_DAYS(NOW( )) - TO_DAYS(USER_DATE) = 7
+    </select>
+
+    <!--删除用户信息-->
+    <delete id="deleteUserInfoBack">
+        delete from tb_users_copy  where USER_ID = #{USER_ID}
+    </delete>
+
+</mapper>

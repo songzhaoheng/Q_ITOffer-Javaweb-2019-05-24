@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加职位</title>
+    <link rel="shortcut icon" href="../images/logo/ico.png" type="image/x-icon" >
+    <link href="../css/manageadmin.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="place"> <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">职位管理</a></li>
+        <li><a href="#">添加职位</a></li>
+    </ul>
+</div>
+<div class="formbody">
+    <div class="usual">
+        <form name="frm" action="../useraddServlet" method="post">
+            <div class="tabson">
+                <ul class="forminfo">
+                    <li>
+                        <label>招聘名称<b>*</b></label>
+                        <input name="userLogname" type="text" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>工作地址<b>*</b></label>
+                        <input name="userPwd" type="text" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>工作描述<b>*</b></label>
+                        <input name="userRealname" type="text" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>薪资（元）<b>*</b></label>
+                        <input name="userEmail" type="text" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>招聘人数<b>*</b></label>
+                        <input name="userEmail" type="number" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>发布时间<b>*</b></label>
+                        <input name="userEmail" type="date" class="dfinput" style="width:518px;"/>
+                    </li>
+                    <li>
+                        <label>企业名称<b>*</b></label>
+                        <div class="vocation">
+                            <select name="userRole" class="select3">
+                                <option value="3">青软实训</option>
+                                <option value="2">青软锐聘</option>
+                                <option value="1">青软留学</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label>职位状态<b>*</b></label>
+                        <div class="vocation">
+                            <select name="userRole" class="select3">
+                                <option value="3">在招</option>
+                                <option value="2">停招</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>  <label>&nbsp;</label>
+                        <input name="" type="submit" class="btn" value="添加"/>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
